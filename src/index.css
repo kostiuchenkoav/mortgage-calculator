@@ -1,0 +1,268 @@
+:root {
+  --color-text: #1d2330;
+  --color-muted: #5b6474;
+  --color-surface: #ffffff;
+  --color-page: #f4f6fa;
+  --color-border: #d6dae1;
+  --color-primary: #0f766e;
+  --color-primary-hover: #115e59;
+  --color-danger: #b91c1c;
+  --radius: 10px;
+  color: var(--color-text);
+  background: var(--color-page);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-page);
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 0 0 4px;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 0 0 12px;
+}
+
+.app-header p,
+.muted,
+.hint {
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.form,
+.summary,
+.chart,
+.schedule,
+.empty {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.form fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.form legend {
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+label {
+  font-size: 0.95rem;
+}
+
+input[type='text'] {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--color-text);
+  width: 100%;
+}
+
+input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.radio-group {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.radio-group label {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.error {
+  color: var(--color-danger);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+}
+
+button {
+  font: inherit;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--color-primary-hover);
+}
+
+button.secondary {
+  background: #fff;
+  color: var(--color-primary);
+}
+
+button[aria-pressed='true'] {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  min-width: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.stat {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.stat dt {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.stat dd {
+  margin: 4px 0 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.stat--main dd {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.early-note {
+  margin-top: 16px;
+  background: #ecfdf5;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.early-note p {
+  margin: 4px 0;
+}
+
+.chart {
+  margin: 0;
+}
+
+.chart figcaption {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: right;
+  white-space: nowrap;
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+.app-footer {
+  margin-top: 32px;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
